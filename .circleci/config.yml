@@ -9,7 +9,11 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
+            - run: npm install -g mern-cli
+            - run: mern init your_new_app
+            - run: cd your_new_app
             - run: npm install
+            # - run: npm start
             - run: npm test
 workflows:
     build-and-test:
